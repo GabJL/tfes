@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import TFEListPage from "../components/TFEListPage.astro";
+
+const tfes = await getCollection(
+  "tfes",
+  ({ data }) => data.status === "ongoing"
+);
+
+tfes.sort((a, b) => b.data.id - a.data.id);
+
+const categories = await getCollection("categories");
+categories.sort((a, b) => a.data.order - b.data.order);
+---
+
+<TFEListPage
+  title="Trabajos en curso"
+  description="Trabajos que están siendo desarrollados actualmente por estudiantes de grado y máster."
+  tfes={tfes}
+  categories={categories}
+  showFilters={false}
+/>

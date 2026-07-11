@@ -1,0 +1,55 @@
+---
+
+import { withBase } from "../lib/paths";
+
+interface Props {
+  proposalCount?: number;
+  ongoingCount?: number;
+}
+
+const {
+  proposalCount = 0,
+  ongoingCount = 0,
+} = Astro.props;
+---
+
+<section class="hero">
+  <p class="hero__eyebrow">Universidad de Málaga</p>
+
+  <h1>Trabajos Fin de Estudios</h1>
+
+  <p>
+    En esta página puedes consultar propuestas de Trabajos Fin de Grado y de
+    Máster relacionadas con mis líneas de investigación y desarrollo, así como
+    trabajos actualmente en curso y una recopilación de los ya finalizados.
+  </p>
+
+  <p>
+    Las propuestas son orientativas y pueden ajustarse según los intereses del
+    estudiante y el alcance esperado del trabajo. Las propuestas marcadas como
+    TFG y TFM partirían de un desarrollo más básico en el caso de un TFG,
+    mientras que para un TFM requerirían un estudio más completo y profundo.
+  </p>
+
+  <p>
+    También puedes plantearme otras ideas. Si no encajan directamente con mis
+    líneas de trabajo, podemos estudiar si es posible adaptarlas o buscar a otra
+    persona que pueda orientarte mejor.
+  </p>
+
+  <div class="hero__actions">
+    <a class="button button--primary" href={withBase("/propuestas")}>
+      Ver propuestas
+      {proposalCount > 0 && <span>({proposalCount})</span>}
+    </a>
+    
+    <a class="button button--secondary" href={withBase("/en-curso")}>
+      En curso
+      {ongoingCount > 0 && <span>({ongoingCount})</span>}
+    </a>
+
+    <a class="button button--secondary" href={withBase("/finalizados")}>
+      Consultar trabajos finalizados
+    </a>
+  </div>
+</section>

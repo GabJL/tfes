@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  category: CollectionEntry<"categories">;
+}
+
+const { category } = Astro.props;
+---
+
+<span
+  class="category-badge"
+  style={`--category-color: ${category.data.color}`}
+>
+  {category.data.name}
+</span>

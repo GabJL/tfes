@@ -1,0 +1,18 @@
+---
+import { withBase } from "../lib/paths";
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href={withBase()}>
+      TFEs
+    </a>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href={withBase()}>Inicio</a>
+      <a href={withBase("propuestas/")}>Propuestas</a>
+      <a href={withBase("en-curso/")}>En curso</a>
+      <a href={withBase("finalizados/")}>Finalizados</a>
+    </nav>
+  </div>
+</header>

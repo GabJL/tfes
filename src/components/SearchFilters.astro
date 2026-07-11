@@ -1,0 +1,217 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  categories: CollectionEntry<"categories">[];
+  showAcademicYear?: boolean;
+  academicYears?: string[];
+}
+
+const {
+  categories,
+  showAcademicYear = false,
+  academicYears = [],
+} = Astro.props;
+---
+
+<form class="search-filters" data-search-filters>
+  <fieldset class="search-filters__categories">
+    <legend>Categorías</legend>
+
+    <div class="category-filters">
+      {
+        categories.map((category) => (
+          <button
+            type="button"
+            class="category-filter"
+            data-filter-category={category.data.id}
+            aria-pressed="true"
+            style={`--category-color: ${category.data.color}`}
+          >
+            {category.data.name}
+          </button>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <div class="search-filters__search">
+    <label for="search">Buscar</label>
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Título, resumen o etiqueta..."
+      data-filter-search
+    />
+  </div>
+
+
+
+  <div class="search-filters__group">
+    <label for="degree">Titulación</label>
+
+    <select id="degree" data-filter-degree>
+      <option value="">Todas</option>
+      <option value="TFG">TFG</option>
+      <option value="TFM">TFM</option>
+    </select>
+  </div>
+
+  <div class="search-filters__group">
+    <label for="research">Tipo</label>
+
+    <select id="research" data-filter-research>
+      <option value="">Todos</option>
+      <option value="true">Investigación</option>
+      <option value="false">Desarrollo</option>
+    </select>
+  </div>
+
+  {
+    showAcademicYear && (
+      <div class="search-filters__group">
+        <label for="academic-year">Curso</label>
+
+        <select id="academic-year" data-filter-academic-year>
+          <option value="">Todos</option>
+
+          {
+            academicYears.map((year) => (
+              <option value={year}>{year}</option>
+            ))
+          }
+        </select>
+      </div>
+    )
+  }
+
+  <button type="reset" class="button button--secondary">
+    Limpiar filtros
+  </button>
+</form>
+
+<p class="search-results-count" data-results-count></p>
+
+<script>
+  const form = document.querySelector("[data-search-filters]");
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-tfe-card]")
+  );
+
+  const emptyMessage = document.querySelector<HTMLElement>("[data-empty-message]");
+
+  const resultCount = document.querySelector("[data-results-count]");
+
+  if (form instanceof HTMLFormElement) {
+    const searchInput =
+      form.querySelector<HTMLInputElement>("[data-filter-search]");
+
+    const categoryButtons = Array.from(
+      form.querySelectorAll<HTMLButtonElement>("[data-filter-category]")
+    );
+
+    const degreeSelect =
+      form.querySelector<HTMLSelectElement>("[data-filter-degree]");
+
+    const researchSelect =
+      form.querySelector<HTMLSelectElement>("[data-filter-research]");
+
+    const academicYearSelect =
+      form.querySelector<HTMLSelectElement>("[data-filter-academic-year]");
+
+    const normalize = (value: string) =>
+      value
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase()
+        .trim();
+
+    const applyFilters = () => {
+      const search = normalize(searchInput?.value ?? "");
+      const activeCategories = categoryButtons
+        .filter((button) => button.getAttribute("aria-pressed") === "true")
+        .map((button) => button.dataset.filterCategory ?? "");
+      const degree = degreeSelect?.value ?? "";
+      const research = researchSelect?.value ?? "";
+      const academicYear = academicYearSelect?.value ?? "";
+
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const cardText = normalize(card.dataset.searchText ?? "");
+        const categories = (card.dataset.categories ?? "").split(",");
+        const degrees = (card.dataset.degrees ?? "").split(",");
+        const cardResearch = card.dataset.research ?? "";
+        const cardAcademicYear = card.dataset.academicYear ?? "";
+
+        const matchesSearch =
+          !search || cardText.includes(search);
+
+        const matchesCategory =
+          activeCategories.length > 0 &&
+          activeCategories.some((category) => categories.includes(category));
+
+        const matchesDegree =
+          !degree || degrees.includes(degree);
+
+        const matchesResearch =
+          !research || cardResearch === research;
+
+        const matchesAcademicYear =
+          !academicYear || cardAcademicYear === academicYear;
+
+        const show =
+          matchesSearch &&
+          matchesCategory &&
+          matchesDegree &&
+          matchesResearch &&
+          matchesAcademicYear;
+
+        card.hidden = !show;
+
+        if (show) {
+          visible += 1;
+        }
+      });
+
+      if (resultCount) {
+        resultCount.textContent =
+          visible === 1
+            ? "1 trabajo encontrado"
+            : `${visible} trabajos encontrados`;
+      }
+
+      if (emptyMessage) {
+        emptyMessage.hidden = visible !== 0;
+      }
+    };
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const isActive =
+          button.getAttribute("aria-pressed") === "true";
+
+        button.setAttribute(
+          "aria-pressed",
+          String(!isActive)
+        );
+
+        applyFilters();
+      });
+    });
+
+    form.addEventListener("input", applyFilters);
+    form.addEventListener("change", applyFilters);
+
+    form.addEventListener("reset", () => {
+      categoryButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", "true");
+      });
+
+      window.setTimeout(applyFilters, 0);
+    });
+
+    applyFilters();
+  }
+</script>

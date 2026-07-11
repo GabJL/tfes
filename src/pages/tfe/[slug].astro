@@ -1,0 +1,144 @@
+---
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CategoryBadge from "../../components/CategoryBadge.astro";
+import ResourceLinks from "../../components/ResourceLinks.astro";
+
+import { withBase } from "../../lib/paths";
+
+const originURL = withBase();
+
+export async function getStaticPaths() {
+  const tfes = await getCollection(
+    "tfes",
+    ({ data }) => data.status !== "discarded"
+  );
+
+  return tfes.map((tfe) => ({
+    params: {
+      slug: tfe.data.slug,
+    },
+    props: {
+      tfe,
+    },
+  }));
+}
+
+const { tfe } = Astro.props;
+
+const categories = await getCollection("categories");
+
+const tfeCategories = tfe.data.categories
+  .map((categoryId) =>
+    categories.find((category) => category.data.id === categoryId)
+  )
+  .filter((category) => category !== undefined);
+
+const statusLabels = {
+  proposal: "Propuesta disponible",
+  ongoing: "En desarrollo",
+  finished: "Finalizado",
+  discarded: "Archivado",
+};
+
+const { Content } = await render(tfe);
+---
+
+<BaseLayout
+  title={`${tfe.data.title} | Gabriel Luque`}
+  description={tfe.data.summary}
+>
+  <article class="tfe-detail">
+    <p class="tfe-detail__back">
+      <a href={originURL}>← Volver al inicio</a>
+    </p>
+
+    <header class="tfe-detail__header">
+      <div class="tfe-detail__meta">
+        <span class={`status status--${tfe.data.status}`}>
+          {statusLabels[tfe.data.status]}
+        </span>
+
+        <span>{tfe.data.degree.join(" / ")}</span>
+
+        <span>
+          {tfe.data.research
+            ? "Trabajo de investigación"
+            : "Trabajo de desarrollo"}
+        </span>
+      </div>
+
+      <h1>{tfe.data.title}</h1>
+
+      <p class="tfe-detail__summary">
+        {tfe.data.summary}
+      </p>
+
+      <div class="tfe-detail__categories">
+        {
+          tfeCategories.map((category) => (
+            <CategoryBadge category={category} />
+          ))
+        }
+      </div>
+    </header>
+
+    {
+      (tfe.data.student ||
+        tfe.data.academicYear ||
+        tfe.data.supervisors.length > 0) && (
+        <section class="tfe-detail__information">
+          <h2>Información</h2>
+
+          <dl>
+            {
+              tfe.data.student && (
+                <>
+                  <dt>Estudiante</dt>
+                  <dd>{tfe.data.student}</dd>
+                </>
+              )
+            }
+
+            {
+              tfe.data.academicYear && (
+                <>
+                  <dt>Curso académico</dt>
+                  <dd>{tfe.data.academicYear}</dd>
+                </>
+              )
+            }
+
+            <dt>
+              {tfe.data.supervisors.length === 1 ? "Tutor" : "Tutores"}
+            </dt>
+            <dd>{tfe.data.supervisors.join(", ")}</dd>
+          </dl>
+        </section>
+      )
+    }
+
+    {
+      tfe.data.tags.length > 0 && (
+        <section class="tfe-detail__tags">
+          <h2>Temas relacionados</h2>
+
+          <ul class="tag-list" aria-label="Etiquetas">
+            {
+              tfe.data.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))
+            }
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="markdown-content">
+      <Content />
+    </div>
+
+    <ResourceLinks resources={tfe.data.resources} />
+  </article>
+</BaseLayout>

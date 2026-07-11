@@ -1,0 +1,117 @@
+.search-filters {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 2fr)
+    repeat(3, minmax(150px, 1fr))
+    auto;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #d9dee5;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+}
+
+.search-filters__search,
+.search-filters__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.search-filters label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.search-filters input,
+.search-filters select {
+  width: 100%;
+  min-height: 2.7rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #aeb8c2;
+  border-radius: 0.4rem;
+  background: white;
+}
+
+.search-results-count {
+  margin: 0 0 1.5rem;
+  color: #52606d;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tfe-card[hidden] {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .search-filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-filters__search {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 550px) {
+  .search-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .search-filters__search {
+    grid-column: auto;
+  }
+}
+
+.search-filters__categories {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.search-filters__categories legend {
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  overflow-x: auto;
+}
+
+.category-filter {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--category-color);
+  border-radius: 999px;
+  color: var(--category-color);
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.category-filter:hover {
+  background: color-mix(
+    in srgb,
+    var(--category-color) 8%,
+    white
+  );
+}
+
+.category-filter[aria-pressed="true"] {
+  color: var(--category-color);
+  background: color-mix(
+    in srgb,
+    var(--category-color) 14%,
+    white
+  );
+}

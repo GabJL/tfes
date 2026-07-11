@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { withBase } from "../lib/paths";
+import TFEGrid from "./TFEGrid.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+  tfes: CollectionEntry<"tfes">[];
+  categories: CollectionEntry<"categories">[];
+}
+
+const {
+  title,
+  description,
+  link,
+  linkText,
+  tfes,
+  categories,
+} = Astro.props;
+
+const sectionUrl = link
+  ? withBase(link)
+  : undefined;
+---
+
+<section class="status-section">
+  <div class="status-section__header">
+    <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+
+    {
+      sectionUrl && linkText && (
+        <a class="status-section__link" href={sectionUrl}>
+          {linkText} →
+        </a>
+      )
+    }
+  </div>
+
+  <TFEGrid
+    tfes={tfes}
+    categories={categories}
+  />
+</section>

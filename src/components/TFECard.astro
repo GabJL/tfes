@@ -1,0 +1,106 @@
+---
+import type { CollectionEntry } from "astro:content";
+import CategoryBadge from "./CategoryBadge.astro";
+
+import { withBase } from "../lib/paths";
+
+
+interface Props {
+  tfe: CollectionEntry<"tfes">;
+  categories: CollectionEntry<"categories">[];
+}
+
+const { tfe, categories } = Astro.props;
+
+const statusLabels = {
+  proposal: "Propuesta",
+  ongoing: "En curso",
+  finished: "Finalizado",
+  discarded: "Archivado",
+};
+
+const degreeLabel = tfe.data.degree.join(" / ");
+
+const tfeCategories = tfe.data.categories
+  .map((categoryId) =>
+    categories.find((category) => category.data.id === categoryId)
+  )
+  .filter(
+    (category): category is CollectionEntry<"categories"> =>
+      category !== undefined
+  );
+
+const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
+
+---
+
+<article
+  class="tfe-card"
+  data-tfe-card
+  data-search-text={[
+    tfe.data.title,
+    tfe.data.summary,
+    ...tfe.data.tags,
+    tfe.data.student ?? "",
+  ].join(" ")}
+  data-categories={tfe.data.categories.join(",")}
+  data-degrees={tfe.data.degree.join(",")}
+  data-research={String(tfe.data.research)}
+  data-academic-year={tfe.data.academicYear ?? ""}
+>
+  <header class="tfe-card__header">
+    <div class="tfe-card__meta">
+      <span class={`status status--${tfe.data.status}`}>
+        {statusLabels[tfe.data.status]}
+      </span>
+
+      <span>{degreeLabel}</span>
+
+      {tfe.data.research && <span>Investigación</span>}
+    </div>
+
+    <h3 class="tfe-card__title">
+      <a href={tfeUrl}>
+        {tfe.data.title}
+      </a>
+    </h3>
+  </header>
+
+  <p class="tfe-card__summary">
+    {tfe.data.summary}
+  </p>
+
+  <div class="tfe-card__categories">
+    {
+      tfeCategories.map((category) => (
+        <CategoryBadge category={category} />
+      ))
+    }
+  </div>
+
+  {
+    tfe.data.tags.length > 0 && (
+      <ul class="tag-list" aria-label="Etiquetas">
+        {
+          tfe.data.tags.slice(0, 5).map((tag) => (
+            <li class="tag">{tag}</li>
+          ))
+        }
+      </ul>
+    )
+  }
+
+  {
+    tfe.data.student && (
+      <p class="tfe-card__student">
+        <strong>Estudiante:</strong> {tfe.data.student}
+      </p>
+    )
+  }
+
+  <footer class="tfe-card__footer">
+    <a class="tfe-card__link" href={tfeUrl}>
+      Ver detalles →
+    </a>
+  </footer>
+</article>

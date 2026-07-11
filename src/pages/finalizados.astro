@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import TFEListPage from "../components/TFEListPage.astro";
+
+const tfes = await getCollection(
+  "tfes",
+  ({ data }) => data.status === "finished"
+);
+
+tfes.sort((a, b) => {
+  const yearComparison =
+    (b.data.academicYear ?? "").localeCompare(
+      a.data.academicYear ?? ""
+    );
+
+  return yearComparison !== 0
+    ? yearComparison
+    : b.data.id - a.data.id;
+});
+
+const categories = await getCollection("categories");
+categories.sort((a, b) => a.data.order - b.data.order);
+---
+
+<TFEListPage
+  title="Trabajos finalizados"
+  description="Recopilación de trabajos defendidos, con acceso a sus memorias, repositorios y otros recursos cuando estén disponibles."
+  tfes={tfes}
+  categories={categories}
+  showAcademicYear={true}
+/>

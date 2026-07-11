@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import TFEListPage from "../components/TFEListPage.astro";
+
+const tfes = await getCollection(
+  "tfes",
+  ({ data }) => data.status === "proposal"
+);
+
+tfes.sort((a, b) => b.data.id - a.data.id);
+
+const categories = await getCollection("categories");
+categories.sort((a, b) => a.data.order - b.data.order);
+---
+
+<TFEListPage
+  title="Propuestas de TFG y TFM"
+  description="Ideas disponibles que pueden adaptarse al alcance del trabajo y a los intereses del estudiante."
+  tfes={tfes}
+  categories={categories}
+/>

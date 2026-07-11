@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+
+import { withBase } from "../lib/paths";
+
+import Hero from "../components/Hero.astro";
+import StatusSection from "../components/StatusSection.astro";
+import TFEGrid from "../components/TFEGrid.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const tfes = await getCollection(
+  "tfes",
+  ({ data }) => data.status !== "archived"
+);
+
+const categories = await getCollection("categories");
+
+categories.sort((a, b) => a.data.order - b.data.order);
+
+const proposals = tfes
+  .filter((tfe) => tfe.data.status === "proposal")
+  .sort((a, b) => b.data.id - a.data.id);
+
+const ongoing = tfes
+  .filter((tfe) => tfe.data.status === "ongoing")
+  .sort((a, b) => b.data.id - a.data.id);
+
+const finished = tfes
+  .filter((tfe) => tfe.data.status === "finished")
+  .sort((a, b) => b.data.id - a.data.id)
+  .slice(0, 6);
+---
+
+<BaseLayout
+  title="Trabajos Fin de Estudios | Gabriel Luque"
+  description="Propuestas de TFG y TFM, trabajos en curso y trabajos finalizados dirigidos por Gabriel Luque."
+>
+  <Hero
+    proposalCount={proposals.length}
+    ongoingCount={ongoing.length}
+  />
+
+  <StatusSection
+    title="Propuestas disponibles"
+    description="Ideas de TFG y TFM que pueden adaptarse a los intereses del estudiante."
+    link="/propuestas")
+    linkText="Ver todas las propuestas"
+    tfes={proposals.slice(0, 3)}
+    categories={categories}
+  />
+
+  <StatusSection
+    title="Trabajos en curso"
+    description="Trabajos actualmente en desarrollo."
+    link="/en-curso")
+    linkText="Ver todos los trabajos en curso"
+    tfes={ongoing.slice(0, 3)}
+    categories={categories}
+  />
+
+  <StatusSection
+    title="Últimos trabajos finalizados"
+    description="Algunos de los trabajos defendidos más recientemente."
+    link="/finalizados")
+    linkText="Consultar trabajos finalizados"
+    tfes={finished.slice(0, 3)}
+    categories={categories}
+  />
+</BaseLayout>

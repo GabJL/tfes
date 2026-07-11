@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SearchFilters from "./SearchFilters.astro";
+import TFEGrid from "./TFEGrid.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  tfes: CollectionEntry<"tfes">[];
+  categories: CollectionEntry<"categories">[];
+  showFilters?: boolean;
+  showAcademicYear?: boolean;
+}
+
+const {
+  title,
+  description,
+  tfes,
+  categories,
+  showFilters = true,
+  showAcademicYear = false,
+} = Astro.props;
+
+const academicYears = [
+  ...new Set(
+    tfes
+      .map((tfe) => tfe.data.academicYear)
+      .filter((year): year is string => Boolean(year))
+  ),
+].sort((a, b) => b.localeCompare(a));
+---
+
+<BaseLayout
+  title={`${title} | Gabriel Luque`}
+  description={description}
+>
+  <header class="page-header">
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </header>
+
+  {
+    showFilters && (
+      <SearchFilters
+        categories={categories}
+        showAcademicYear={showAcademicYear}
+        academicYears={academicYears}
+      />
+    )
+  }
+
+  <TFEGrid
+    tfes={tfes}
+    categories={categories}
+  />
+</BaseLayout>

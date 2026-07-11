@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TFECard from "./TFECard.astro";
+
+interface Props {
+  tfes: CollectionEntry<"tfes">[];
+  categories: CollectionEntry<"categories">[];
+}
+
+const { tfes, categories } = Astro.props;
+---
+
+{
+  <div class="tfe-grid">
+    {
+      tfes.map((tfe) => (
+        <TFECard
+          tfe={tfe}
+          categories={categories}
+        />
+      ))
+    }
+  </div>
+
+  <p
+    class="empty-message"
+    data-empty-message
+    hidden
+  >
+    No hay trabajos que coincidan con los filtros seleccionados.
+  </p>
+}

@@ -1,0 +1,137 @@
+.tfe-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+}
+
+.tfe-detail__back {
+  margin-bottom: 2rem;
+}
+
+.tfe-detail__back a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tfe-detail__header {
+  margin-bottom: 2.5rem;
+}
+
+.tfe-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #52606d;
+  font-size: 0.9rem;
+}
+
+.tfe-detail__meta > span {
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: #f1f3f5;
+}
+
+.tfe-detail h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  line-height: 1.1;
+}
+
+.tfe-detail__summary {
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.tfe-detail__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.tfe-detail__information {
+  padding: 1.5rem;
+  border: 1px solid #d9dee5;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+}
+
+.tfe-detail__information h2 {
+  margin-top: 0;
+}
+
+.tfe-detail__information dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.65rem 1.5rem;
+  margin-bottom: 0;
+}
+
+.tfe-detail__information dt {
+  font-weight: 700;
+}
+
+.tfe-detail__information dd {
+  margin: 0;
+}
+
+.tfe-detail__tags {
+  margin-block: 2rem;
+}
+
+.markdown-content {
+  margin-top: 3rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.markdown-content h2 {
+  margin-top: 2.5rem;
+  font-size: 1.8rem;
+}
+
+.markdown-content h3 {
+  margin-top: 2rem;
+}
+
+.markdown-content li + li {
+  margin-top: 0.45rem;
+}
+
+.resource-links {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #d9dee5;
+}
+
+.resource-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.resource-links a {
+  display: inline-flex;
+  padding: 0.7rem 1rem;
+  border: 1px solid #cbd2d9;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.resource-links a:hover {
+  background: #f1f3f5;
+}
+
+@media (max-width: 600px) {
+  .tfe-detail__information dl {
+    grid-template-columns: 1fr;
+  }
+
+  .tfe-detail__information dd {
+    margin-bottom: 0.75rem;
+  }
+}
