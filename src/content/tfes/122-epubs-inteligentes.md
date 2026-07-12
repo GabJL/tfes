@@ -1,5 +1,5 @@
 ---
-id: 003
+id: 122
 
 title: "EPUBs inteligentes: enriquecimiento de narrativas mediante IA"
 
@@ -25,11 +25,9 @@ summary: >
   técnicas de inteligencia artificial.
 
 tags:
-  - IA
+  - Libros electrónicos
   - LLM
   - NLP
-  - EPUB
-  - Libros electrónicos
   - NER
 
 supervisors:

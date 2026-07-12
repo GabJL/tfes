@@ -1,5 +1,5 @@
 ---
-id: 002
+id: 112
 
 title: "Plataforma colaborativa para la generación inteligente de chuletarios en competiciones de programación"
 

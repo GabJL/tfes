@@ -1,5 +1,5 @@
 ---
-id: 015
+id: 121
 
 title: "Sistema de información para la gestión docente de un departamento universitario"
 
@@ -25,7 +25,6 @@ summary: >
 tags:
   - Desarrollo web
   - Bases de datos
-  - Ingeniería del software
   - Integración de datos
   - Visualización de datos
 

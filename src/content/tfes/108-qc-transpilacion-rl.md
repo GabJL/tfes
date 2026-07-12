@@ -1,5 +1,5 @@
 ---
-id: 008
+id: 108
 
 title: "Transpilación cuántica mediante aprendizaje por refuerzo"
 
@@ -25,10 +25,11 @@ summary: >
   distintos computadores cuánticos.
 
 tags:
-  - Computación cuántica
   - Transpilación
   - Aprendizaje por refuerzo
   - Optimización
+  - Routing
+  - Synthesis
   - NISQ
 
 supervisors:

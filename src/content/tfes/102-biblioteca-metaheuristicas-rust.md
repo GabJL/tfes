@@ -1,5 +1,5 @@
 ---
-id: 011
+id: 102
 
 title: "Biblioteca extensible de optimización metaheurística en Rust"
 
@@ -26,7 +26,6 @@ summary: >
 tags:
   - Rust
   - Metaheurísticas
-  - Optimización
   - Optimización multiobjetivo
   - Bibliotecas software
   - Computación evolutiva
@@ -39,7 +38,7 @@ supervisors:
   - Gabriel Luque
 
 resources:
-  thesis: /documents/011-biblioteca-metaheuristicas-rust.pdf
+  thesis: /documents/102-biblioteca-metaheuristicas-rust.pdf
   repository: https://github.com/DRLKs/roma
 ---
 

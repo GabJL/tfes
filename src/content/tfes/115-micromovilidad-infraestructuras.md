@@ -1,5 +1,5 @@
 ---
-id: 018
+id: 115
 
 title: "Optimización multiobjetivo de infraestructuras para micromovilidad urbana"
 
@@ -25,13 +25,10 @@ summary: >
   seguridad, conectividad y cobertura de la red.
 
 tags:
-  - Smart Cities
   - Micromovilidad
   - Optimización multiobjetivo
   - Metaheurísticas
-  - Grafos
   - OpenStreetMap
-  - Movilidad sostenible
 
 supervisors:
   - Gabriel Luque

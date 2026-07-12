@@ -1,5 +1,5 @@
 ---
-id: 006
+id: 101
 
 title: "Búsqueda inteligente de aparcamiento mediante aprendizaje profundo y optimización multiobjetivo"
 
@@ -24,7 +24,6 @@ summary: >
   probabilidad de encontrar una plaza libre.
 
 tags:
-  - Smart Cities
   - Aprendizaje profundo
   - Optimización multiobjetivo
   - Movilidad
@@ -39,7 +38,7 @@ supervisors:
   - Gabriel Luque
 
 resources:
-  thesis: /documents/006-aparcamiento-inteligente.pdf
+  thesis: /documents/101-aparcamiento-inteligente.pdf
   repository: https://github.com/djvq02/TFM
 ---
 
@@ -47,11 +46,11 @@ resources:
 
 Encontrar una plaza de aparcamiento en una ciudad puede suponer varios minutos de búsqueda, aumentando la congestión del tráfico, el consumo energético y las emisiones contaminantes. Si fuera posible predecir qué zonas tendrán plazas disponibles en los próximos minutos, los conductores podrían planificar rutas más eficientes y reducir significativamente estos tiempos de búsqueda.
 
-El objetivo de este trabajo es desarrollar un sistema inteligente capaz de combinar modelos predictivos basados en aprendizaje profundo con técnicas de optimización multiobjetivo para recomendar rutas que maximicen la probabilidad de encontrar una plaza libre. Para ello se emplearán datos históricos de ocupación de aparcamientos, información geográfica y variables temporales con el fin de estimar la disponibilidad futura de plazas y calcular posteriormente la mejor estrategia de búsqueda.
+El objetivo de este trabajo se desarrolló un sistema inteligente capaz de combinar modelos predictivos basados en aprendizaje profundo con técnicas de optimización multiobjetivo para recomendar rutas que maximicen la probabilidad de encontrar una plaza libre. Para ello se empleó datos históricos de ocupación de aparcamientos, información geográfica y variables temporales con el fin de estimar la disponibilidad futura de plazas y calcular posteriormente la mejor estrategia de búsqueda.
 
-Además del desarrollo del sistema, el trabajo permitirá comparar distintos modelos predictivos y diferentes formulaciones del problema de optimización, analizando el equilibrio entre tiempo de recorrido, distancia, probabilidad de éxito y otros criterios de interés. El resultado será un prototipo reproducible con aplicación directa al ámbito de las ciudades inteligentes y la movilidad sostenible.
+Además del desarrollo del sistema, el trabajo permitió comparar distintos modelos predictivos y diferentes formulaciones del problema de optimización, analizando el equilibrio entre tiempo de recorrido, distancia, probabilidad de éxito y otros criterios de interés. El resultado será un prototipo reproducible con aplicación directa al ámbito de las ciudades inteligentes y la movilidad sostenible.
 
-## Posibles líneas de trabajo
+## Trabajo Realizado
 
 - Analizar y preparar conjuntos de datos relacionados con la ocupación de aparcamientos.
 - Desarrollar y comparar modelos de aprendizaje profundo para la predicción de plazas disponibles.
@@ -59,12 +58,3 @@ Además del desarrollo del sistema, el trabajo permitirá comparar distintos mod
 - Integrar los modelos predictivos con el algoritmo de optimización.
 - Desarrollar una aplicación para visualizar las predicciones y las rutas generadas.
 - Diseñar y ejecutar un estudio experimental utilizando datos reales.
-
-## Qué aprenderás
-
-- Modelado y análisis de series temporales.
-- Aplicación práctica del aprendizaje profundo.
-- Técnicas de optimización mono y multiobjetivo.
-- Tratamiento de datos geoespaciales.
-- Desarrollo de aplicaciones para Smart Cities.
-- Diseño y evaluación experimental de sistemas inteligentes.

@@ -1,5 +1,5 @@
 ---
-id: 016
+id: 113
 
 title: "Sistema de apoyo al análisis de tráfico de red en prácticas docentes con Wireshark"
 
@@ -25,7 +25,6 @@ summary: >
 tags:
   - Redes
   - Wireshark
-  - Educación
   - Desarrollo web
   - Automatización
 

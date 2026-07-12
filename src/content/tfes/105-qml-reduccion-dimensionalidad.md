@@ -1,5 +1,5 @@
 ---
-id: 013
+id: 105
 
 title: "Hacia un aprendizaje automático cuántico adaptado para NISQ: estudio de modelos híbridos asistidos por selección de características"
 
@@ -24,16 +24,12 @@ summary: >
   clasificadores variacionales al hardware NISQ actual.
 
 tags:
-  - Computación cuántica
   - Quantum Machine Learning
-  - QML
-  - NISQ
-  - VQC
   - Qiskit
+  - Reducción de dimensionalidad
+  - Autoencoders
   - PCA
   - UMAP
-  - Autoencoders
-  - Reducción de dimensionalidad
 
 student: Pablo Ruiz Muñoz
 
@@ -41,19 +37,19 @@ academicYear: 2025-2026
 
 supervisors:
   - Gabriel Luque
-  - Abdelmoiz Zakaria Dahi
+  - Zakaria Abdelmoiz Dahi
 
 resources:
-  thesis: /documents/013-qml-modelos-hibridos-seleccion-caracteristicas.pdf
+  thesis: /documents/105-qml-reduccion-dimensionalidad.pdf
 ---
 
 ## Descripción
 
-El aprendizaje automático cuántico (Quantum Machine Learning, QML) es una de las aplicaciones más prometedoras de la computación cuántica. Sin embargo, el reducido número de cúbits y la presencia de ruido en los dispositivos actuales dificultan el tratamiento de conjuntos de datos con un elevado número de características, limitando la aplicación práctica de muchos modelos cuánticos. 
+El aprendizaje automático cuántico (Quantum Machine Learning, QML) es una de las aplicaciones más prometedoras de la computación cuántica. Sin embargo, el reducido número de cúbits y la presencia de ruido en los dispositivos actuales dificultan el tratamiento de conjuntos de datos con un elevado número de características, limitando la aplicación práctica de muchos modelos cuánticos.
 
 Este trabajo aborda este problema mediante el desarrollo de modelos híbridos clásico-cuánticos donde un preprocesamiento clásico reduce la dimensionalidad de los datos antes de su codificación en un Clasificador Cuántico Variacional (VQC). Para ello se ha desarrollado un marco experimental parametrizable que permite combinar distintas técnicas de reducción de dimensionalidad, estrategias de codificación cuántica y configuraciones de feature maps, facilitando la ejecución de campañas experimentales reproducibles.
 
-La evaluación experimental estudia el comportamiento de técnicas como PCA, UMAP y Autoencoders sobre diferentes conjuntos de datos, analizando el compromiso entre reducción de dimensionalidad, precisión del modelo y recursos cuánticos necesarios. Los resultados muestran que estas técnicas permiten ejecutar modelos QML sobre circuitos considerablemente más pequeños sin degradar significativamente su rendimiento, acercando este tipo de modelos a las capacidades del hardware NISQ actual. 
+La evaluación experimental estudia el comportamiento de técnicas como PCA, UMAP y Autoencoders sobre diferentes conjuntos de datos, analizando el compromiso entre reducción de dimensionalidad, precisión del modelo y recursos cuánticos necesarios. Los resultados muestran que estas técnicas permiten ejecutar modelos QML sobre circuitos considerablemente más pequeños sin degradar significativamente su rendimiento, acercando este tipo de modelos a las capacidades del hardware NISQ actual.
 
 ## Trabajo realizado
 

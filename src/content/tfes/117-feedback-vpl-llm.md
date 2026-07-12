@@ -1,5 +1,5 @@
 ---
-id: 004
+id: 117
 
 title: "Feedback inteligente para VPL mediante modelos de lenguaje locales"
 
@@ -24,12 +24,11 @@ summary: >
   un feedback más útil, personalizado y alineado con los criterios docentes.
 
 tags:
-  - LLM
-  - VPL
-  - Educación
-  - RAG
+  - Evaluación formativa
   - Programación
-  - IA
+  - LLM
+  - RAG
+  - VPL
 
 supervisors:
   - Gabriel Luque

@@ -1,5 +1,5 @@
 ---
-id: 017
+id: 120
 
 title: "Evaluación de frameworks de optimización mediante modelos de lenguaje"
 
@@ -25,7 +25,6 @@ summary: >
   metaheurísticas.
 
 tags:
-  - Ingeniería del software
   - LLM
   - Metaheurísticas
   - Frameworks

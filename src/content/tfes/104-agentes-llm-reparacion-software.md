@@ -1,5 +1,5 @@
 ---
-id: 012
+id: 104
 
 title: "Análisis experimental de orquestación de agentes basados en LLMs para la reparación automática de software"
 
@@ -24,7 +24,6 @@ summary: >
   software guiándose por sus pruebas.
 
 tags:
-  - Ingeniería del software
   - LLM
   - Agentes
   - Reparación automática
@@ -40,7 +39,7 @@ supervisors:
   - Francisco Javier Servant Cortes
 
 resources:
-  thesis: /documents/012-agentes-llm-reparacion-software.pdf
+  thesis: /documents/104-agentes-llm-reparacion-software.pdf
 ---
 
 ## Descripción

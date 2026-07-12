@@ -1,5 +1,5 @@
 ---
-id: 010
+id: 103
 
 title: "Transpilación cuántica híbrida mediante optimización multiobjetivo y aprendizaje por refuerzo"
 
@@ -24,7 +24,6 @@ summary: >
   la transpilación de circuitos cuánticos.
 
 tags:
-  - Computación cuántica
   - Transpilación
   - Optimización multiobjetivo
   - Aprendizaje por refuerzo
@@ -37,10 +36,10 @@ academicYear: 2025-2026
 
 supervisors:
   - Gabriel Luque
-  - Abdelmoiz Zakaria Dahi
+  - Zakaria Abdelmoiz Dahi
 
 resources:
-  thesis: /documents/010-qc-transpilacion-hibrida.pdf
+  thesis: /documents/103-qc-transpilacion-hibrida.pdf
   repository: https://github.com/edugbau/TFG-AI-Quantum-Transpiler
 ---
 

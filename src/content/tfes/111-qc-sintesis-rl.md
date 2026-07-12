@@ -1,5 +1,5 @@
 ---
-id: 007
+id: 111
 
 title: "Síntesis de circuitos cuánticos mediante aprendizaje por refuerzo"
 
@@ -24,7 +24,6 @@ summary: >
   cuánticos de forma automática optimizando distintos criterios de calidad.
 
 tags:
-  - Computación cuántica
   - Aprendizaje por refuerzo
   - Optimización
   - Síntesis de circuitos

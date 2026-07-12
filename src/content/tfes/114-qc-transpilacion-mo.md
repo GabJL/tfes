@@ -1,5 +1,5 @@
 ---
-id: 009
+id: 114
 
 title: "Optimización multiobjetivo para la transpilación de circuitos cuánticos"
 
@@ -25,7 +25,6 @@ summary: >
   número de puertas, fidelidad o tiempo de ejecución.
 
 tags:
-  - Computación cuántica
   - Transpilación
   - Optimización multiobjetivo
   - Metaheurísticas

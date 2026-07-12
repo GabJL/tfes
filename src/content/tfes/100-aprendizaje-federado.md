@@ -1,5 +1,5 @@
 ---
-id: 001
+id: 100
 
 title: "Sistema de aprendizaje federado para el análisis de parámetros de comunicación"
 
@@ -28,7 +28,6 @@ tags:
   - Sistemas distribuidos
   - Android
   - Redes
-  - Inteligencia artificial
 
 student: Antonio José Martínez Hermosilla
 

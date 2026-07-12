@@ -1,5 +1,5 @@
 ---
-id: 005
+id: 107
 
 title: "Mejora de VPL mediante comparadores flexibles y análisis AST"
 
@@ -28,7 +28,6 @@ tags:
   - AST
   - Evaluación automática
   - Programación
-  - Educación
 
 supervisors:
   - Gabriel Luque
