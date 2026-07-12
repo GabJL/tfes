@@ -71,9 +71,35 @@
 }
 
 .tfe-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   align-self: end;
+  width: 100%;
   margin: 0;
   padding-top: 1rem;
+}
+
+.resource-links-compact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.resource-links-compact a {
+  color: #52606d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.resource-links-compact a:hover {
+  color: #111827;
+  text-decoration: underline;
 }
 
 

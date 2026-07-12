@@ -83,7 +83,7 @@ const { Content } = await render(tfe);
         }
       </div>
     </header>
-
+    <div class="tfe-detail__top-grid">
     {
       (tfe.data.student ||
         tfe.data.study ||
@@ -128,7 +128,9 @@ const { Content } = await render(tfe);
         </section>
       )
     }
-
+      <ResourceLinks resources={tfe.data.resources} />
+    </div>
+    
     {
       tfe.data.tags.length > 0 && (
         <section class="tfe-detail__tags">
@@ -149,6 +151,5 @@ const { Content } = await render(tfe);
       <Content />
     </div>
 
-    <ResourceLinks resources={tfe.data.resources} />
   </article>
 </BaseLayout>

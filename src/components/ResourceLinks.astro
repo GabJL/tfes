@@ -13,57 +13,130 @@ interface Resources {
 
 interface Props {
   resources?: Resources;
+  compact?: boolean;
 }
 
-const { resources } = Astro.props;
+const {
+  resources,
+  compact = false,
+} = Astro.props;
 
-function resolveResource(url: string): string {
-  return /^https?:\/\//.test(url)
-    ? url
-    : withBase(url);
-}
+const definitions = [
+  {
+    key: "thesis",
+    label: "Memoria",
+    compactLabel: "PDF",
+    icon: "📄",
+  },
+  {
+    key: "proposal",
+    label: "Anteproyecto",
+    compactLabel: "Anteproyecto",
+    icon: "📄",
+  },
+  {
+    key: "repository",
+    label: "Repositorio",
+    compactLabel: "Código",
+    icon: "⌨",
+  },
+  {
+    key: "paper",
+    label: "Publicación",
+    compactLabel: "Artículo",
+    icon: "▤",
+  },
+  {
+    key: "slides",
+    label: "Presentación",
+    compactLabel: "Diapositivas",
+    icon: "▣",
+  },
+  {
+    key: "poster",
+    label: "Póster",
+    compactLabel: "Póster",
+    icon: "▥",
+  },
+  {
+    key: "video",
+    label: "Vídeo",
+    compactLabel: "Vídeo",
+    icon: "▶",
+  },
+] as const;
 
 const links = resources
-  ? [
-      { label: "Memoria", url: resources.thesis },
-      { label: "Anteproyecto", url: resources.proposal },
-      { label: "Repositorio", url: resources.repository },
-      { label: "Publicación", url: resources.paper },
-      { label: "Presentación", url: resources.slides },
-      { label: "Póster", url: resources.poster },
-      { label: "Vídeo", url: resources.video },
-    ]
-      .filter(
-        (resource): resource is { label: string; url: string } =>
-          Boolean(resource.url)
-      )
-      .map((resource) => ({
-        ...resource,
-        resolvedUrl: resolveResource(resource.url),
-        external: /^https?:\/\//.test(resource.url),
-      }))
+  ? definitions
+      .map(({ key, label, compactLabel, icon }) => {
+        const url = resources[key];
+
+        if (!url) {
+          return undefined;
+        }
+
+        const external = /^https?:\/\//i.test(url);
+        const pdf = /\.pdf(?:$|\?)/i.test(url);
+
+        return {
+          label,
+          compactLabel,
+          icon,
+          href: external ? url : withBase(url),
+          newTab: external || pdf,
+        };
+      })
+      .filter((link) => link !== undefined)
   : [];
 ---
+
 {
-  links.length > 0 && (
+  links.length > 0 && compact && (
+    <nav
+      class="resource-links-compact"
+      aria-label="Recursos del trabajo"
+    >
+      {
+        links.map((resource) => (
+          <a
+            href={resource.href}
+            target={resource.newTab ? "_blank" : undefined}
+            rel={resource.newTab ? "noopener noreferrer" : undefined}
+            title={resource.label}
+          >
+            {resource.compactLabel}
+          </a>
+        ))
+      }
+    </nav>
+  )
+}
+
+{
+  links.length > 0 && !compact && (
     <section class="resource-links">
       <h2>Recursos</h2>
 
-      <ul>
+      <div class="resource-links__list">
         {
           links.map((resource) => (
-            <li>
-              <a
-                href={resource.resolvedUrl}
-                target={resource.external ? "_blank" : undefined}
-                rel={resource.external ? "noopener noreferrer" : undefined}
+            <a
+              href={resource.href}
+              target={resource.newTab ? "_blank" : undefined}
+              rel={resource.newTab ? "noopener noreferrer" : undefined}
+            >
+              <span
+                class="resource-links__icon"
+                aria-hidden="true"
               >
-                {resource.label}
-              </a>
-            </li>
+                {resource.icon}
+              </span>
+
+              <span>{resource.label}</span>
+            </a>
           ))
         }
-      </ul>
+      </div>
     </section>
   )
 }

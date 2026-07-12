@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import CategoryBadge from "./CategoryBadge.astro";
+import ResourceLinks from "./ResourceLinks.astro";
 
 import { withBase } from "../lib/paths";
 
@@ -102,5 +103,10 @@ const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
     <a class="tfe-card__link" href={tfeUrl}>
       Ver detalles →
     </a>
+
+    <ResourceLinks
+      resources={tfe.data.resources}
+      compact={true}
+    />
   </footer>
 </article>
