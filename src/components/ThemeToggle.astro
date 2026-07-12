@@ -1,0 +1,50 @@
+<button
+  type="button"
+  class="theme-toggle"
+  aria-label="Cambiar tema"
+  title="Cambiar tema"
+  data-theme-toggle
+>
+  <span data-theme-icon aria-hidden="true">◐</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const root = document.documentElement;
+
+  const getPreferredTheme = () => {
+    const saved = localStorage.getItem("theme");
+
+    if (saved === "light" || saved === "dark") {
+      return saved;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const applyTheme = (theme: "light" | "dark") => {
+    root.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+
+    const icon = button?.querySelector("[data-theme-icon]");
+
+    if (icon) {
+      icon.textContent = theme === "dark" ? "☀" : "☾";
+    }
+  };
+
+  if (button) {
+    applyTheme(getPreferredTheme());
+
+    button.addEventListener("click", () => {
+      const nextTheme =
+        root.dataset.theme === "dark"
+          ? "light"
+          : "dark";
+
+      applyTheme(nextTheme);
+    });
+  }
+</script>

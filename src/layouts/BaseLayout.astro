@@ -25,6 +25,18 @@ const {
   <head>
     <meta charset="UTF-8" />
 
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      const preferredTheme =
+        savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+
+      document.documentElement.dataset.theme = preferredTheme;
+    </script>
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1"

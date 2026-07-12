@@ -7,8 +7,59 @@
     "Segoe UI",
     sans-serif;
 
-  color: #1f2933;
-  background: #ffffff;
+  color-scheme: light;
+
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-strong: #f1f3f5;
+  --color-text: #172033;
+  --color-text-muted: #52606d;
+  --color-border: #d9dee5;
+  --color-border-strong: #cbd2d9;
+  --color-primary: #202020;
+  --color-primary-text: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #111827;
+  --color-surface: #182235;
+  --color-surface-strong: #243047;
+  --color-text: #f3f4f6;
+  --color-text-muted: #b6c0cf;
+  --color-border: #344158;
+  --color-border-strong: #4a5870;
+  --color-primary: #f3f4f6;
+  --color-primary-text: #111827;
+}
+
+:root {
+  --status-proposal-bg: #e8f3ff;
+  --status-proposal-text: #245b87;
+
+  --status-ongoing-bg: #fff3cd;
+  --status-ongoing-text: #765b00;
+
+  --status-finished-bg: #e8f5e9;
+  --status-finished-text: #28643a;
+}
+
+:root[data-theme="dark"] {
+  --status-proposal-bg: #18334f;
+  --status-proposal-text: #b9dcff;
+
+  --status-ongoing-bg: #4a3d12;
+  --status-ongoing-text: #ffe28a;
+
+  --status-finished-bg: #183c29;
+  --status-finished-text: #b9f0c8;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  margin: 0;
 }
 
 * {
@@ -17,10 +68,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
 }
 
 a {
@@ -50,12 +97,26 @@ section {
 }
 
 .button--primary {
-  color: white;
-  background: #202020;
+  color: var(--color-primary-text);
+  background: var(--color-primary);
 }
 
+
 .button--secondary {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
   background: transparent;
+}
+
+.button--secondary:hover {
+  background: var(--color-surface-strong);
+}
+
+button,
+input,
+select,
+textarea {
+  color: var(--color-text);
 }
 
 .section-heading {
@@ -73,7 +134,7 @@ section {
 
 .section-heading p {
   margin: 0;
-  color: #52606d;
+  color: var(--color-text-muted);
 }
 
 .section-heading > a {
@@ -92,4 +153,21 @@ section {
     flex-direction: column;
     gap: 0.75rem;
   }
+}
+
+body,
+.site-header,
+.site-footer,
+.tfe-card,
+.search-filters,
+.tfe-detail__information,
+.resource-links,
+input,
+select,
+button,
+a {
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }

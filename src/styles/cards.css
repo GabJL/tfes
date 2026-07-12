@@ -15,9 +15,9 @@
 
   min-height: 100%;
   padding: 1.5rem;
-  border: 1px solid #d9dee5;
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--color-background);
 }
 
 .tfe-card__header {
@@ -52,17 +52,12 @@
   display: inline;
   margin: 0;
   padding: 0;
-  color: #52606d;
+  color: var(--color-text-muted);
   font-size: 0.8rem;
 }
 
 .tag::before {
   content: none;
-}
-
-.tag:not(:last-child)::after {
-  content: "·";
-  margin-left: 0.5rem;
 }
 
 .tfe-card__student {
@@ -90,7 +85,7 @@
 }
 
 .resource-links-compact a {
-  color: #52606d;
+  color: var(--color-text-muted);
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1;
@@ -98,10 +93,9 @@
 }
 
 .resource-links-compact a:hover {
-  color: #111827;
+  color: var(--color-text);
   text-decoration: underline;
 }
-
 
 .tfe-card__meta {
   display: flex;
@@ -109,13 +103,13 @@
   gap: 0.5rem;
   margin-bottom: 0.75rem;
   font-size: 0.85rem;
-  color: #52606d;
+  color: var(--color-text-muted);
 }
 
 .tfe-card__meta > span {
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
-  background: #f1f3f5;
+  background: var(--color-surface-strong);
 }
 
 .tfe-card__title {
@@ -141,8 +135,8 @@
   color: var(--category-color);
   background: color-mix(
     in srgb,
-    var(--category-color) 10%,
-    white
+    var(--category-color) 12%,
+    var(--color-background)
   );
   font-size: 0.85rem;
   font-weight: 600;
@@ -163,17 +157,20 @@
 }
 
 .status--proposal {
-  background: #e8f3ff !important;
+  color: var(--status-proposal-text);
+  background: var(--status-proposal-bg) !important;
 }
 
 .status--ongoing {
-  background: #fff3cd !important;
+  color: var(--status-ongoing-text);
+  background: var(--status-ongoing-bg) !important;
 }
 
 .status--finished {
-  background: #e8f5e9 !important;
+  color: var(--status-finished-text);
+  background: var(--status-finished-bg) !important;
 }
 
 .empty-message {
-  color: #52606d;
+  color: var(--color-text-muted);
 }
