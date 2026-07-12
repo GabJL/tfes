@@ -3,6 +3,8 @@ id: 100
 
 title: "Sistema de aprendizaje federado para el análisis de parámetros de comunicación"
 
+shortTitle: "Análisis de comunicaciones en aprendizaje federado"
+
 slug: aprendizaje-federado
 
 status: ongoing
@@ -16,7 +18,6 @@ categories:
 
 degree:
   - TFG
-  - TFM
 
 summary: >
   Desarrollo de un sistema de aprendizaje federado con clientes Android para

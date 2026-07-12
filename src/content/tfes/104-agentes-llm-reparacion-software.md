@@ -3,6 +3,8 @@ id: 104
 
 title: "Análisis experimental de orquestación de agentes basados en LLMs para la reparación automática de software"
 
+shortTitle: "Orquestación de agentes para la reparación automática de software"
+
 slug: agentes-llm-reparacion-software
 
 status: finished

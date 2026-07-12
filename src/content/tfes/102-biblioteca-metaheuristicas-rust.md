@@ -3,6 +3,8 @@ id: 102
 
 title: "Biblioteca extensible de optimización metaheurística en Rust"
 
+shortTitle: "Biblioteca de metaheurísticas en Rust"
+
 slug: biblioteca-metaheuristicas-rust
 
 status: finished

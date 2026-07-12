@@ -3,6 +3,8 @@ id: 112
 
 title: "Plataforma colaborativa para la generación inteligente de chuletarios en competiciones de programación"
 
+shortTitle: "Creación de chuletarios para competiciones de programación"
+
 slug: chuletarios-inteligentes
 
 status: proposal

@@ -3,6 +3,8 @@ id: 101
 
 title: "Búsqueda inteligente de aparcamiento mediante aprendizaje profundo y optimización multiobjetivo"
 
+shortTitle: "Búsqueda inteligente de aparcamiento"
+
 slug: aparcamiento-inteligente
 
 status: finished

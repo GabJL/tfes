@@ -3,6 +3,8 @@ id: 103
 
 title: "Transpilación cuántica híbrida mediante optimización multiobjetivo y aprendizaje por refuerzo"
 
+shortTitle: "Mejora en la transpilación mediante multiobjetivo y aprendizajs por refuerzo"
+
 slug: transpilacion-cuantica-hibrida
 
 status: finished

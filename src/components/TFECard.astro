@@ -20,7 +20,10 @@ const statusLabels = {
   discarded: "Archivado",
 };
 
-const degreeLabel = tfe.data.degree.join(" / ");
+const degreeLabel =
+  tfe.data.degree.length === 1
+    ? tfe.data.degree[0]
+    : "TFG / TFM";
 
 const tfeCategories = tfe.data.categories
   .map((categoryId) =>
@@ -50,19 +53,9 @@ const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
   data-academic-year={tfe.data.academicYear ?? ""}
 >
   <header class="tfe-card__header">
-    <div class="tfe-card__meta">
-      <span class={`status status--${tfe.data.status}`}>
-        {statusLabels[tfe.data.status]}
-      </span>
-
-      <span>{degreeLabel}</span>
-
-      {tfe.data.research && <span>Investigación</span>}
-    </div>
-
     <h3 class="tfe-card__title">
       <a href={tfeUrl}>
-        {tfe.data.title}
+        {tfe.data.shortTitle ?? tfe.data.title}
       </a>
     </h3>
   </header>
@@ -83,9 +76,16 @@ const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
     tfe.data.tags.length > 0 && (
       <ul class="tag-list" aria-label="Etiquetas">
         {
-          tfe.data.tags.slice(0, 5).map((tag) => (
+          tfe.data.tags.slice(0, 3).map((tag) => (
             <li class="tag">{tag}</li>
           ))
+        }
+        {
+          tfe.data.tags.length > 3 && (
+            <li class="tag tag--more">
+              +{tfe.data.tags.length - 3}
+            </li>
+          )
         }
       </ul>
     )
@@ -104,9 +104,13 @@ const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
       Ver detalles →
     </a>
 
-    <ResourceLinks
-      resources={tfe.data.resources}
-      compact={true}
-    />
+    <div class="tfe-card__footer-meta">
+      <span>{degreeLabel}</span>
+
+      <ResourceLinks
+        resources={tfe.data.resources}
+        compact={true}
+      />
+    </div>
   </footer>
 </article>

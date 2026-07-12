@@ -1,7 +1,7 @@
 ---
 id: 116
 
-title: "Migración automática de proyectos Python 2 a Python 3 mediante análisis estático e inteligencia artificial"
+title: "Migración automática de proyectos Python 2 a Python 3 mediante inteligencia artificial"
 
 slug: migracion-python2-python3
 

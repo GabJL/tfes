@@ -26,6 +26,9 @@ const tfes = defineCollection({
     id: z.number(),
 
     title: z.string(),
+
+    shortTitle: z.string().optional(),
+    
     slug: z.string(),
 
     status: z.enum([

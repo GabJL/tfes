@@ -3,6 +3,8 @@ id: 106
 
 title: "Construyendo Mazmorras: generación procedural multiobjetivo de mapas de mazmorras 2D"
 
+shortTitle: "Generando mapas mazmorras basados en multiobjetivo"
+
 slug: generacion-procedural-mazmorras
 
 status: ongoing

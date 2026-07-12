@@ -3,6 +3,8 @@ id: 105
 
 title: "Hacia un aprendizaje automático cuántico adaptado para NISQ: estudio de modelos híbridos asistidos por selección de características"
 
+shortTitle: "Reducción de características para QML"
+
 slug: qml-modelos-hibridos-seleccion-caracteristicas
 
 status: ongoing

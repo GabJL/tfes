@@ -3,6 +3,8 @@ id: 109
 
 title: "Diseño de estrategias para el despliegue progresivo de sistemas de transporte bajo demanda"
 
+shortTitle: "Mejora de los sistemas de transporte bajo demanda"
+
 slug: despliegue-progresivo-drt
 
 status: proposal

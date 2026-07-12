@@ -1,7 +1,7 @@
 ---
 id: 110
 
-title: "Evolución automática de pruebas software mediante análisis de cambios e inteligencia artificial"
+title: "Evolución automática de pruebas software mediante inteligencia artificial"
 
 slug: evolucion-automatica-tests
 
