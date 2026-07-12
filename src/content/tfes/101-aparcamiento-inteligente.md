@@ -32,6 +32,8 @@ tags:
 
 student: Daniel Justin Vargas Quero
 
+study: "Máster Universitario en Ingeniería Informática"
+
 academicYear: 2025-2026
 
 supervisors:

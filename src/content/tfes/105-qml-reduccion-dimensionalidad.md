@@ -33,6 +33,8 @@ tags:
 
 student: Pablo Ruiz Muñoz
 
+study: "Máster Universitario en Ingeniería Informática"
+
 academicYear: 2025-2026
 
 supervisors:

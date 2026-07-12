@@ -86,6 +86,7 @@ const { Content } = await render(tfe);
 
     {
       (tfe.data.student ||
+        tfe.data.study ||
         tfe.data.academicYear ||
         tfe.data.supervisors.length > 0) && (
         <section class="tfe-detail__information">
@@ -97,6 +98,15 @@ const { Content } = await render(tfe);
                 <>
                   <dt>Estudiante</dt>
                   <dd>{tfe.data.student}</dd>
+                </>
+              )
+            }
+
+            {
+              tfe.data.study && (
+                <>
+                  <dt>Titulación</dt>
+                  <dd>{tfe.data.study}</dd>
                 </>
               )
             }

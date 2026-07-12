@@ -53,6 +53,8 @@ const tfes = defineCollection({
 
     student: z.string().optional(),
 
+    study: z.string().optional(),
+
     academicYear: z.string().optional(),
 
     resources: z.object({

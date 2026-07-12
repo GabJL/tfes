@@ -32,6 +32,8 @@ tags:
 
 student: Adrián Torremocha Doblas
 
+study: "Máster en Ingeniería del Software e Inteligencia Artificial"
+
 academicYear: 2025-2026
 
 supervisors:

@@ -32,6 +32,8 @@ tags:
 
 student: David Muñoz del Valle
 
+study: "Grado en Ingeniería del Software"
+
 academicYear: 2025-2026
 
 supervisors:

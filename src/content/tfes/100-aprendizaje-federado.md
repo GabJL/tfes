@@ -31,6 +31,8 @@ tags:
 
 student: Antonio José Martínez Hermosilla
 
+study: "Grado en Ingeniería Telemática"
+
 academicYear: 2025-2026
 
 supervisors:

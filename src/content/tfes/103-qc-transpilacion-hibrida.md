@@ -32,6 +32,8 @@ tags:
 
 student: Eduardo González Bautista
 
+study: "Grado en Ingeniería del Software"
+
 academicYear: 2025-2026
 
 supervisors:
