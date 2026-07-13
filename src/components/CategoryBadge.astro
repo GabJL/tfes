@@ -11,6 +11,7 @@ const { category } = Astro.props;
 <span
   class="category-badge"
   style={`--category-color: ${category.data.color}`}
+  title={category.data.name}
 >
   {category.data.name}
 </span>

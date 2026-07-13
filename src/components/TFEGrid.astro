@@ -2,12 +2,40 @@
 import type { CollectionEntry } from "astro:content";
 import TFECard from "./TFECard.astro";
 
+import { withBase } from "../lib/paths";
+
 interface Props {
   tfes: CollectionEntry<"tfes">[];
   categories: CollectionEntry<"categories">[];
 }
 
 const { tfes, categories } = Astro.props;
+
+const exportRows = tfes.map((tfe) => {
+  const tfeUrl = withBase(`tfe/${tfe.data.slug}/`);
+
+  return {
+    slug: tfe.data.slug,
+    status: tfe.data.status,
+    title: tfe.data.title,
+    summary: tfe.data.summary.trim(),
+    degree: tfe.data.degree.join("/"),
+    categories: tfe.data.categories
+      .map(
+        (categoryId) =>
+          categories.find((category) => category.data.id === categoryId)
+            ?.data.name ?? categoryId
+      )
+      .join("; "),
+    tags: tfe.data.tags.join("; "),
+    academicYear: tfe.data.academicYear ?? "",
+    student: tfe.data.student ?? "",
+    supervisors: tfe.data.supervisors.join("; "),
+    url: Astro.site
+      ? new URL(tfeUrl, Astro.site).toString()
+      : tfeUrl,
+  };
+});
 ---
 
 {
@@ -29,4 +57,10 @@ const { tfes, categories } = Astro.props;
   >
     No hay trabajos que coincidan con los filtros seleccionados.
   </p>
+
+  <script
+    type="application/json"
+    data-tfe-export
+    set:html={JSON.stringify(exportRows)}
+  />
 }

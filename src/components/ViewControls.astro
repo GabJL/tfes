@@ -1,0 +1,145 @@
+---
+---
+
+<div class="view-controls">
+  <div
+    class="view-toggle"
+    role="group"
+    aria-label="Tipo de vista"
+  >
+    <button
+      type="button"
+      class="view-toggle__button"
+      data-view-button="cards"
+      aria-pressed="true"
+    >
+      Tarjetas
+    </button>
+
+    <button
+      type="button"
+      class="view-toggle__button"
+      data-view-button="list"
+      aria-pressed="false"
+    >
+      Lista
+    </button>
+  </div>
+
+  <button
+    type="button"
+    class="button button--secondary"
+    data-export-csv
+  >
+    Exportar CSV
+  </button>
+</div>
+
+<script>
+  const STORAGE_KEY = "tfe-view";
+
+  const grid = document.querySelector<HTMLElement>(".tfe-grid");
+  const viewButtons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("[data-view-button]")
+  );
+
+  const applyView = (view: string) => {
+    if (grid) {
+      grid.dataset.view = view;
+    }
+
+    viewButtons.forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.viewButton === view)
+      );
+    });
+  };
+
+  const storedView = localStorage.getItem(STORAGE_KEY) ?? "cards";
+  applyView(storedView);
+
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const view = button.dataset.viewButton ?? "cards";
+      localStorage.setItem(STORAGE_KEY, view);
+      applyView(view);
+    });
+  });
+
+  const exportButton =
+    document.querySelector<HTMLButtonElement>("[data-export-csv]");
+
+  const csvEscape = (value: string) => {
+    if (/[",\n]/.test(value)) {
+      return `"${value.replace(/"/g, '""')}"`;
+    }
+
+    return value;
+  };
+
+  exportButton?.addEventListener("click", () => {
+    const exportScript =
+      document.querySelector<HTMLScriptElement>("[data-tfe-export]");
+
+    if (!exportScript?.textContent) {
+      return;
+    }
+
+    const rows = JSON.parse(exportScript.textContent) as Array<
+      Record<string, string | number>
+    >;
+
+    const visibleSlugs = new Set(
+      Array.from(
+        document.querySelectorAll<HTMLElement>("[data-tfe-card]")
+      )
+        .filter((card) => !card.hidden)
+        .map((card) => card.dataset.slug)
+    );
+
+    const visibleRows = rows.filter((row) => visibleSlugs.has(String(row.slug)));
+
+    if (visibleRows.length === 0) {
+      return;
+    }
+
+    const isFinished = visibleRows[0].status === "finished";
+
+    const columns: Array<[string, string]> = [
+      ["title", "Título"],
+      ["summary", "Descripción"],
+      ["degree", "Titulación"],
+      ["categories", "Categorías"],
+      ["tags", "Etiquetas"],
+      ...(isFinished
+        ? ([
+            ["academicYear", "Curso académico"],
+            ["student", "Estudiante"],
+            ["supervisors", "Tutores"],
+          ] as Array<[string, string]>)
+        : []),
+      ["url", "URL"],
+    ];
+
+    const lines = [
+      columns.map(([, label]) => label).join(","),
+      ...visibleRows.map((row) =>
+        columns
+          .map(([key]) => csvEscape(String(row[key] ?? "")))
+          .join(",")
+      ),
+    ];
+
+    const csvContent = lines.join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `tfes-${document.title.split("|")[0].trim().toLowerCase().replace(/\s+/g, "-")}.csv`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  });
+</script>
