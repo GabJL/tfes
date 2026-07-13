@@ -72,7 +72,15 @@ const tfes = defineCollection({
   }),
 });
 
+const pages = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/pages",
+  }),
+});
+
 export const collections = {
   categories,
   tfes,
+  pages,
 };

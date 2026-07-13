@@ -1,0 +1,35 @@
+---
+import { getEntry, render } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/paths";
+
+const originURL = withBase();
+
+const page = await getEntry("pages", "guia-tfe");
+
+if (!page) {
+  throw new Error("No se encontró el contenido de la guía del TFE.");
+}
+
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  title="Guía del TFE | Gabriel Luque"
+  description="Recomendaciones para el desarrollo y la elaboración de la memoria del TFG/TFM."
+>
+  <article class="guia-tfe">
+    <p class="tfe-detail__back">
+      <a href={originURL}>← Volver al inicio</a>
+    </p>
+
+    <header>
+      <h1>{page.data.title}</h1>
+    </header>
+
+    <div class="markdown-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
