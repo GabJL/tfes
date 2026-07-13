@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/paths";
+---
+
+<BaseLayout
+  title="Página no encontrada | Gabriel Luque"
+  description="La página que buscas no existe o se ha movido."
+>
+  <section class="page-header">
+    <h1>Página no encontrada</h1>
+    <p>
+      La página que buscas no existe o se ha movido. Puedes volver al <a href={withBase()}>listado de Trabajos Fin de Estudios</a>.
+    </p>
+  </section>
+</BaseLayout>

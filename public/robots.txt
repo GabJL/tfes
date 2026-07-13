@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://GabJL.github.io/tfes/sitemap-index.xml
