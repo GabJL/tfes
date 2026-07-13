@@ -15,8 +15,24 @@ const {
 ---
 
 <form class="search-filters" data-search-filters>
-  <fieldset class="search-filters__categories">
-    <legend>Categorías</legend>
+  <div
+    class="search-filters__categories"
+    role="group"
+    aria-labelledby="categories-label"
+  >
+    <div class="search-filters__categories-header">
+      <span id="categories-label" class="search-filters__categories-title">
+        Categorías
+      </span>
+
+      <button
+        type="button"
+        class="category-filters__toggle-all"
+        data-toggle-all-categories
+      >
+        Ninguna
+      </button>
+    </div>
 
     <div class="category-filters">
       {
@@ -33,7 +49,7 @@ const {
         ))
       }
     </div>
-  </fieldset>
+  </div>
 
   <div class="search-filters__search">
     <label for="search">Buscar</label>
@@ -110,6 +126,22 @@ const {
     const categoryButtons = Array.from(
       form.querySelectorAll<HTMLButtonElement>("[data-filter-category]")
     );
+
+    const toggleAllButton = form.querySelector<HTMLButtonElement>(
+      "[data-toggle-all-categories]"
+    );
+
+    const countActiveCategories = () =>
+      categoryButtons.filter(
+        (button) => button.getAttribute("aria-pressed") === "true"
+      ).length;
+
+    const updateToggleAllLabel = () => {
+      if (!toggleAllButton) return;
+
+      toggleAllButton.textContent =
+        countActiveCategories() >= 2 ? "Ninguna" : "Todas";
+    };
 
     const degreeSelect =
       form.querySelector<HTMLSelectElement>("[data-filter-degree]");
@@ -197,8 +229,20 @@ const {
           String(!isActive)
         );
 
+        updateToggleAllLabel();
         applyFilters();
       });
+    });
+
+    toggleAllButton?.addEventListener("click", () => {
+      const shouldSelectAll = countActiveCategories() < 2;
+
+      categoryButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(shouldSelectAll));
+      });
+
+      updateToggleAllLabel();
+      applyFilters();
     });
 
     form.addEventListener("input", applyFilters);
@@ -209,9 +253,11 @@ const {
         button.setAttribute("aria-pressed", "true");
       });
 
+      updateToggleAllLabel();
       window.setTimeout(applyFilters, 0);
     });
 
+    updateToggleAllLabel();
     applyFilters();
   }
 </script>
