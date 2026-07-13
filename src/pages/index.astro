@@ -1,11 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-import { withBase } from "../lib/paths";
-
 import Hero from "../components/Hero.astro";
 import StatusSection from "../components/StatusSection.astro";
-import TFEGrid from "../components/TFEGrid.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const tfes = await getCollection(
@@ -43,7 +40,7 @@ const finished = tfes
   <StatusSection
     title="Propuestas disponibles"
     description="Ideas de TFG y TFM que pueden adaptarse a los intereses del estudiante."
-    link="/propuestas")
+    link="/propuestas"
     linkText="Ver todas las propuestas"
     tfes={proposals.slice(0, 3)}
     categories={categories}
@@ -52,7 +49,7 @@ const finished = tfes
   <StatusSection
     title="Trabajos en curso"
     description="Trabajos actualmente en desarrollo."
-    link="/en-curso")
+    link="/en-curso"
     linkText="Ver todos los trabajos en curso"
     tfes={ongoing.slice(0, 3)}
     categories={categories}
@@ -61,7 +58,7 @@ const finished = tfes
   <StatusSection
     title="Últimos trabajos finalizados"
     description="Algunos de los trabajos defendidos más recientemente."
-    link="/finalizados")
+    link="/finalizados"
     linkText="Consultar trabajos finalizados"
     tfes={finished.slice(0, 3)}
     categories={categories}

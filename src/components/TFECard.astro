@@ -13,13 +13,6 @@ interface Props {
 
 const { tfe, categories } = Astro.props;
 
-const statusLabels = {
-  proposal: "Propuesta",
-  ongoing: "En curso",
-  finished: "Finalizado",
-  discarded: "Archivado",
-};
-
 const degreeLabel =
   tfe.data.degree.length === 1
     ? tfe.data.degree[0]

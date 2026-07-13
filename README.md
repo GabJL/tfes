@@ -14,7 +14,7 @@ Los trabajos se organizan en tres estados:
 - `proposal`: propuestas disponibles.
 - `ongoing`: trabajos actualmente en desarrollo.
 - `finished`: trabajos finalizados o defendidos.
-- `discarded`: propuestas archivadas que no deben mostrarse públicamente.
+- `archived`: propuestas archivadas que no deben mostrarse públicamente.
 
 Cada TFE dispone de una ficha Markdown con sus metadatos, descripción,
 categorías y recursos asociados.

@@ -12,7 +12,7 @@ const originURL = withBase();
 export async function getStaticPaths() {
   const tfes = await getCollection(
     "tfes",
-    ({ data }) => data.status !== "discarded"
+    ({ data }) => data.status !== "archived"
   );
 
   return tfes.map((tfe) => ({
@@ -39,7 +39,7 @@ const statusLabels = {
   proposal: "Propuesta disponible",
   ongoing: "En desarrollo",
   finished: "Finalizado",
-  discarded: "Archivado",
+  archived: "Archivado",
 };
 
 const { Content } = await render(tfe);
