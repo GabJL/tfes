@@ -1,16 +1,16 @@
 ---
-title: Guía de trabajo para el desarrollo del TFG
+title: Guía de trabajo para el desarrollo del TFE
 ---
 
-El objetivo de este documento es recoger una serie de recomendaciones para facilitar el desarrollo del TFG y mejorar la coordinación entre estudiante y tutor. Dependiendo de las características de cada trabajo, algunos aspectos podrán adaptarse de común acuerdo.
+El objetivo de este documento es recoger una serie de recomendaciones para facilitar el desarrollo del TFE y mejorar la coordinación entre estudiante y tutor. Dependiendo de las características de cada trabajo, algunos aspectos podrán adaptarse de común acuerdo.
 
-## 1. Inicio del TFG
+## 1. Inicio del TFE
 
 - Realizar un estudio inicial sobre el ámbito del proyecto, las tecnologías implicadas y el estado del arte, con el fin de comprender el problema antes de comenzar el desarrollo.
-- Una vez adquirido ese contexto, consensuar con el tutor el alcance del TFG, definiendo claramente los objetivos mínimos que se espera alcanzar y, si es posible, aquellos aspectos que podrían desarrollarse de forma adicional.
+- Una vez adquirido ese contexto, consensuar con el tutor el alcance del TFE, definiendo claramente los objetivos mínimos que se espera alcanzar y, si es posible, aquellos aspectos que podrían desarrollarse de forma adicional.
 - Establecer una planificación inicial del trabajo y consensuar un índice preliminar de la memoria, que podrá ir evolucionando conforme avance el proyecto.
 
-## 2. Desarrollo del TFG
+## 2. Desarrollo del TFE
 
 - Mantener reuniones periódicas con el tutor (preferiblemente semanales o quincenales) para revisar el avance, resolver dudas y consensuar las decisiones técnicas más relevantes.
 - Evitar tomar de forma autónoma decisiones importantes sobre el alcance, la arquitectura o el diseño del proyecto sin consultarlas previamente con el tutor.
