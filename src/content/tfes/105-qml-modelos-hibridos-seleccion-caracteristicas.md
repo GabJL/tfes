@@ -7,7 +7,7 @@ shortTitle: "Reducción de características para QML"
 
 slug: qml-modelos-hibridos-seleccion-caracteristicas
 
-status: ongoing
+status: finished
 
 created: 2025-09-01
 
