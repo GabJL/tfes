@@ -33,6 +33,7 @@ tags:
 supervisors:
   - Gabriel Luque
 ---
+> ⚠️ **Actualmente hay estudiantes interesados en este TFE, pero aún no es definitivo.**
 
 ## Descripción
 
