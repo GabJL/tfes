@@ -32,6 +32,8 @@ supervisors:
   - Gabriel Luque
 ---
 
+> ⚠️ **Actualmente hay estudiantes interesados en este TFE, solo pendiente del anteproyecto.**
+
 ## Descripción
 
 Las prácticas basadas en Wireshark son una herramienta fundamental para comprender el funcionamiento de los protocolos de red. Sin embargo, interpretar correctamente una captura puede resultar complejo para el alumnado y requiere una importante dedicación del profesorado durante la corrección y resolución de dudas.
