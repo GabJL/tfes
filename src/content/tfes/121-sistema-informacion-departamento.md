@@ -32,6 +32,8 @@ supervisors:
   - Gabriel Luque
 ---
 
+> ⚠️ **Actualmente hay estudiantes interesados en este TFE, solo pendiente del anteproyecto.**
+
 ## Descripción
 
 La gestión de la información en un departamento universitario suele apoyarse en múltiples hojas de cálculo, documentos PDF y aplicaciones independientes. Esta dispersión dificulta la consulta de información histórica, la elaboración de informes y la toma de decisiones relacionadas con la planificación docente.
