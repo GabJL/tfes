@@ -5,7 +5,7 @@ title: "Feedback inteligente para VPL mediante modelos de lenguaje locales"
 
 slug: feedback-vpl-llm-rag
 
-status: proposal
+status: ongoing
 
 created: 2026-07-11
 
@@ -30,10 +30,16 @@ tags:
   - RAG
   - VPL
 
+student: Pablo Senciales De la Higuera
+
+study: "Máster en Ingeniería Informática"
+
+academicYear: 2026-2027
+
 supervisors:
   - Gabriel Luque
+  - Rafael Marcos Luque
 ---
-> ⚠️ **Actualmente hay estudiantes interesados en este TFE, pero aún no es definitivo.**
 
 ## Descripción
 

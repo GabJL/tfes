@@ -5,7 +5,7 @@ title: "Optimización de zonas para el reequilibrado inteligente de bicicletas c
 
 slug: optimizacion-zonas-reequilibrado-bicicletas
 
-status: proposal
+status: ongoing
 
 created: 2026-07-12
 
@@ -30,10 +30,15 @@ tags:
   - Clustering
   - Metaheurísticas
 
+student: Marta Vegas Cuevas
+
+study: "Grado en Ingeniería del Software"
+
+academicYear: 2026-2027
+
 supervisors:
   - Gabriel Luque
 ---
-> ⚠️ **Actualmente hay estudiantes interesados en este TFE, pero aún no es definitivo.**
 
 ## Descripción
 

@@ -5,7 +5,7 @@ title: "Sistema de información para la gestión docente de un departamento univ
 
 slug: sistema-informacion-departamento
 
-status: proposal
+status: ongoing
 
 created: 2026-07-11
 
@@ -28,11 +28,15 @@ tags:
   - Integración de datos
   - Visualización de datos
 
+student: Roberto García Román
+
+study: "Grado en Ingeniería Informática"
+
+academicYear: 2026-2027
+
 supervisors:
   - Gabriel Luque
 ---
-
-> ⚠️ **Actualmente hay estudiantes interesados en este TFE, solo pendiente del anteproyecto.**
 
 ## Descripción
 

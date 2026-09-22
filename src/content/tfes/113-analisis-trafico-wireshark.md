@@ -5,7 +5,7 @@ title: "Sistema de apoyo al análisis de tráfico de red en prácticas docentes 
 
 slug: analisis-trafico-wireshark
 
-status: proposal
+status: ongoing
 
 created: 2026-07-11
 
@@ -28,11 +28,15 @@ tags:
   - Desarrollo web
   - Automatización
 
+student: Chaymae Amallam
+
+study: "Grado en Ingeniería Telemática"
+
+academicYear: 2026-2027
+
 supervisors:
   - Gabriel Luque
 ---
-
-> ⚠️ **Actualmente hay estudiantes interesados en este TFE, solo pendiente del anteproyecto.**
 
 ## Descripción
 
