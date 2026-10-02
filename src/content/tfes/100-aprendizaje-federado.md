@@ -7,7 +7,7 @@ shortTitle: "Análisis de comunicaciones en aprendizaje federado"
 
 slug: aprendizaje-federado
 
-status: ongoing
+status: finiched
 
 created: 2025-12-10
 
@@ -38,6 +38,10 @@ academicYear: 2025-2026
 
 supervisors:
   - Gabriel Luque
+
+resources:
+  thesis: /documents/100-aprendizaje-federado.pdf
+  repository: https://github.com/amarher04/Federated-Learning-System-with-Android-Clients
 ---
 
 ## Descripción
