@@ -7,7 +7,11 @@ shortTitle: "Análisis de comunicaciones en aprendizaje federado"
 
 slug: aprendizaje-federado
 
+<<<<<<< HEAD
 status: finiched
+=======
+status: finished
+>>>>>>> 6f9fb28 (Actualizar estado a finalizado y agregar recursos para el sistema de aprendizaje federado)
 
 created: 2025-12-10
 
